@@ -4,7 +4,7 @@
 $idDuGet =$_GET['id'];
 
 // connexion
-$bdd =  new PDO("mysql:host=localhost;dbname=blog", "root", "afpalenny");
+$bdd =  new PDO("mysql:host=localhost;dbname=blog", "root", "");
 
 
 // envoyer la requête
