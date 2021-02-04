@@ -1,6 +1,6 @@
 <?php
 // connexion à la Bdd
-$bdd =  new PDO("mysql:host=localhost;dbname=blog", "root", "afpalenny");
+$bdd =  new PDO("mysql:host=localhost;dbname=blog", "root", "");
 
 
 // afficher le contenu d'une variable(donc POST)
