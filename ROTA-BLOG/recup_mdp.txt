@@ -1,0 +1,42 @@
+
+Pour la page mdp_forgotten.php
+
+    Etapes à suivire :
+
+    0 -Demande de l'adresse mail
+    1a -Sécurisation et 
+            htmlspecialchars
+    2a -vérification validitée mail <- Toujours vérifier l'entrée d'un formulaire
+            SELECT
+    3 -Stockage du mail dans $_SESSION['recup_mail']  
+   
+            UPDATE 
+          + INSERT
+    4&5 -If
+        4 -   Ok  -> Envoi d'un code par mail (mt_rand()*8) <- FONCTION
+            SELECT (parti 4)
+        5 -  faire dans BDD -> Table de "récupération" (id, mail, code)
+    6 -Redirection vers la page d'entrée du code ($_GET['section']='code')
+            SELECT
+           +DELETE   
+    7 -Vérifier la correspondace code/mail dans la BDD
+        -If
+    8a        Ok -> Redirection vers la page de changement du mot de passe + Confirmation du mot de passe ($_GET['section']='mdpform)
+    8b    -Si les deux mots de passe correspondent => hashage et enregistrement dans BDD
+
+    
+? deconnection possible ?
+<?php 
+session_start();
+if(isset($_GET['deconnexion'])){
+    if($_GET['deconnexion'] == true){
+        session_unset();
+        header("Location: ../index.php");
+    }
+}else if($_SESSION['pseudo'] !== ""){
+    $pseudo = $_SESSION['pseudo'];
+    echo "Bonjour $pseudo, vous êtes connectés";
+}
+
+
+?>
